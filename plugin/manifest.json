@@ -1,14 +1,16 @@
 {
     "manifest_version": 2,
-    "name": "Test Form Filler",
-    "description": "Populate fields and call an api",
-    "homepage_url": "http://www.lethcode.com",
+    "name": "Application Form Filler",
+    "description": "Populate fields common in job applications",
+    "homepage_url": "https://github.com/eric-dybsetter/ApplicationFillPlugin",
     "version": "1.0",
     "browser_action": {
-        "default_title": "Click here to load form data!",
+        "default_title": "Click to load field data",
         "default_popup": "index.html"
     },
+    "options_page" : "options.html",
     "permissions": [
+        "storage",
         "tabs",
         "http://*/*",
         "https://*/*"
