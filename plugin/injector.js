@@ -3,9 +3,10 @@
 
 //you may not need cors
 //fetch('https://yourapi').then(function (response) {
-fetch("https://localhost:44320/sampleformdata/book", {mode: 'cors'}).then(function (response) {
+//fetch("https://localhost:44320/sampleformdata/book", {mode: 'cors'}).then(function (response) {
 //fetch(`https://localhost:44320/sampleformdata/?value=${value}`, {mode: 'cors'}).then(function (response) {
 	// The API call was successful!
+	/*
 	if (response.ok) {
 		return response.json();
 	} else {
@@ -18,6 +19,10 @@ fetch("https://localhost:44320/sampleformdata/book", {mode: 'cors'}).then(functi
 }).catch(function (err) {
 	// There was an error
 	console.warn('Something went wrong.', err);
+});
+*/
+chrome.storage.sync.get(['legalNameSection_firstName'], function(store){
+    fillField(document.querySelector('input[data-automation-id="legalNameSection_firstName"]'), store.legalNameSection_firstName);
 });
 
 function fillforms(data){

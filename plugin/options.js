@@ -1,14 +1,14 @@
 $(function(){
 // Display current information
-    chrome.storage.sync.get(['example'], function(store){
-        $('#example').val(store.example);
+    chrome.storage.sync.get(['legalNameSection_firstName'], function(store){
+        $('#legalNameSection_firstName').val(store.legalNameSection_firstName);
     })
 
 // Save functionality
     $('#save').click(function() {
-        var example = $('#example').val();
-        if (example) {
-            chrome.storage.sync.set({'example': example}, function() {
+        var firstName = $('#legalNameSection_firstName').val();
+        if (firstName) {
+            chrome.storage.sync.set({'legalNameSection_firstName': firstName}, function() {
                 close();
             })
         }
