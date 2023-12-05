@@ -21,7 +21,7 @@
 	console.warn('Something went wrong.', err);
 });
 */
-chrome.storage.sync.get(['legalNameSection_firstName'], function(store){
+chrome.storage.sync.get(['firstName'], function(store){
     fillField(document.querySelector('input[data-automation-id="legalNameSection_firstName"]'), store.legalNameSection_firstName);
 });
 

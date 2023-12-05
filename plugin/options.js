@@ -1,18 +1,33 @@
 $(function(){
 // Display current information
-    chrome.storage.sync.get(['legalNameSection_firstName'], function(store){
-        $('#legalNameSection_firstName').val(store.legalNameSection_firstName);
+    chrome.storage.sync.get(['firstName'], function(store){
+        $('#firstName').val(store.firstName);
     })
 
-// Save functionality
-    $('#save').click(function() {
-        var firstName = $('#legalNameSection_firstName').val();
-        if (firstName) {
-            chrome.storage.sync.set({'legalNameSection_firstName': firstName}, function() {
-                close();
-            })
-        }
+    document.querySelector(".save-file").onclick = async () => {
+     const options = {
+       types: [
+         {
+           description: "Test files",
+           accept: {
+             "text/plain": [".txt"],
+           },
+         },
+       ],
+     };
 
-    });
+    var contents = "";
+    var firstName = $('#firstName').val();
+    if (firstName) {
+        contents += "firstName:" + firstName;
+    }
 
+     const handle = await window.showSaveFilePicker(options);
+     const writable = await handle.createWritable();
+
+     await writable.write(contents);
+     await writable.close();
+
+     return handle;
+    };
 });
