@@ -1,5 +1,8 @@
 const workdayMappings = {
     firstName: "legalNameSection_firstName",
+    lastName: "legalNameSection_lastName",
+    address1: "addressSection_addressLine1",
+    city: "addressSection_city",
 };
 
 data.split(',').forEach(function(field) {
