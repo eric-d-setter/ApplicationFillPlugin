@@ -1,8 +1,4 @@
 $(function(){
-// Display current information
-    chrome.storage.sync.get(['firstName'], function(store){
-        $('#firstName').val(store.firstName);
-    })
 
     document.querySelector(".save-file").onclick = async () => {
      const options = {
@@ -19,7 +15,7 @@ $(function(){
     var contents = "";
     var firstName = $('#firstName').val();
     if (firstName) {
-        contents += "firstName:" + firstName;
+        contents += "firstName:" + firstName + ",";
     }
 
      const handle = await window.showSaveFilePicker(options);
