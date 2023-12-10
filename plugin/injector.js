@@ -10,6 +10,11 @@ var inputevent = new Event('input', {
     cancelable: true,
 });
 
+function changevalue(element, stringval) {
+    element.value = stringval;
+    element.dispatchEvent(inputevent);
+}
+
 var clickevent = new Event('dblclick');
 
 var changeevent = new Event('change');
@@ -43,9 +48,9 @@ function setReactInputValue(query, elevalue) {
     var ele = document.querySelector(query);
     if (ele) {
         console.log("Before Value: " + ele.value);
-        ele.value = elevalue;
+        changevalue(ele, elevalue)
         ele.dispatchEvent(new Event('blur'));
         console.log("After Value: " + ele.value);
-
+        ele.
     }
 }
