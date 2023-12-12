@@ -51,6 +51,5 @@ function setReactInputValue(query, elevalue) {
         changevalue(ele, elevalue)
         ele.dispatchEvent(new Event('blur'));
         console.log("After Value: " + ele.value);
-        ele.
     }
 }
