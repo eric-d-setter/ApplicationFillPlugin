@@ -7,12 +7,12 @@ const workdayMappings = {
 
 data.split(',').forEach(function(field) {
     const keyVal = field.split(':');
-    fillField(document.querySelector('input[data-automation-id=' + CSS.escape(workdayMappings[keyVal[0]]) + ']'), keyVal[1]);
+    fillFields(document.querySelector('input[data-automation-id=' + CSS.escape(workdayMappings[keyVal[0]]) + ']'), keyVal[1]);
     //setReactInputValue('input[data-automation-id=' + CSS.escape(workdayMappings[keyVal[0]]) + ']', keyVal[1]);
 });
 
-function fillField(selector, value) {
-    var field = selector();
+function fillFields(selector, value) {
+    var field = selector;
     field.addEventListener("change", fillField(field, value));
 }
 
